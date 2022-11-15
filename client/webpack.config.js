@@ -18,7 +18,37 @@ module.exports = () => {
       path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
-      
+      // Generate html file and include in our bundles
+      new HtmlWebpackPlugin({
+        template: './index.html',
+        title: 'Text Editor'
+      }),
+
+      // Injects our custom service worker
+      new InjectManifest({
+        swSrc: './src-sw.js',
+        swDest: 'src-service-worker.js',
+      }),
+
+      // Generate a manifest.json file.
+      new WebpackPwaManifest({
+        fingerprints: false,
+        inject: true,
+        name: 'Text Editor',
+        short_name: 'Editor',
+        description: 'Keep track of your notes!',
+        background_color: '#92de8a',
+        theme_color: '#92de8a',
+        start_url: './',
+        publicPath: './',
+        icons: [
+          {
+            src: path.resolve('src/images/logo.png'),
+            sizes: [96, 128, 192, 256, 384, 512],
+            destination: path.join('assets', 'icons'),
+          },
+        ],
+      }),
     ],
 
     module: {
