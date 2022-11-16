@@ -23,5 +23,8 @@ This is a text editor application that runs in the browser. This is a single-web
 
 ![A screenshot of website](./images/Screenshot%202022-11-15%20at%209.02.13%20PM.png)
 
+To view a live demonstration of the application. View it here: https://pacific-mesa-34015.herokuapp.com/
+
+
 ## License
 This project is licensed under the [MIT License](https://opensource.org/licenses/MIT)
